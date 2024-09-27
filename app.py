@@ -231,6 +231,8 @@ def home():
 def book_detail(book_id):
     book = Book.query.get_or_404(book_id)
     return render_template('book_detail.html', book=book)
+
+
 @app.route('/add-to-cart/<int:book_id>')
 @auth
 def add_to_cart(book_id):
@@ -264,6 +266,8 @@ def category(category_name):
     books = Book.query.filter_by(category=category_name).all()
     return render_template('category.html', books=books, category_name=category_name)
 
+
+#---------------------------------------------------------
 @app.route('/profile')
 @auth
 def profile():

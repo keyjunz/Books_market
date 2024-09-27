@@ -1,25 +1,37 @@
 html, body {
-    height: 100%; /* Đảm bảo body có chiều cao 100% */
-    margin: 0; /* Loại bỏ margin mặc định */
+    height: 100%; 
+    margin: 0; 
 }
 
 body {
-    display: flex; /* Thiết lập Flexbox */
-    flex-direction: column; /* Sắp xếp theo chiều dọc */
+    display: flex; 
+    flex-direction: column; 
 }
 
 .container-fluid {
-    flex: 1; /* Đảm bảo phần chính chiếm không gian còn lại */
+    flex: 1; 
 }
 
 footer {
     background-color: #f8f8f8;
     border-top: 1px solid #e7e7e7;
-    padding: 20px; /* Thêm padding cho footer */
+    padding: 20px; 
+    margin-top: 20px;
 }
 
 body {
     font-family: Arial, sans-serif;
+}
+.bookstore-title {
+    font-size: 3rem; 
+    font-weight: bold; 
+    color: #333;
+    transition: color 0.3s, text-shadow 0.3s; 
+}
+
+.bookstore-title:hover {
+    color: #007bff; 
+    text-shadow: 2px 2px 5px rgba(0, 123, 255, 0.5); 
 }
 .search-input {
     width: 300px; 
@@ -48,48 +60,47 @@ body {
 }
 
 .book-image {
-    height: 200px; /* Set all images to the same height */
+    height: 200px; 
     width: 100%; 
-    object-fit: cover; /* Ensures the image fits well without distortion */
+    object-fit: cover; 
 }
-
 .card-body {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Ensures content is evenly spaced */
+    justify-content: space-between; 
 }
 
 .card-title {
     font-weight: bold;
     margin-bottom: 5px;
-    height: 40px; /* Fixed height for title */
-    text-align: center; /* Center title for uniformity */
+    height: 40px; 
+    text-align: center; 
 }
 
 .card-text {
     color: #666;
     margin-bottom: 5px;
-    height: 30px; /* Fixed height for author text */
-    text-align: center; /* Center text for uniformity */
+    height: 30px; 
+    text-align: center;
 }
 
 .price {
-    font-size: 1.2em; /* Font size for visibility */
-    color: #000; /* Color of the price */
+    font-size: 1.2em; 
+    color: #000; 
     margin: 5px 0; 
     text-align: center; 
 }
 
 .card-body .button-container {
-    display: flex; /* Align buttons in a row */
-    justify-content: space-between; /* Space between buttons */
-    margin-top: auto; /* Push buttons to the bottom */
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: auto; 
 }
 
 .card-body .button-container .btn {
-    flex: 1; /* Ensure buttons take equal space */
-    margin: 0 5px; /* Small margin between buttons */
+    flex: 1; 
+    margin: 0 5px; 
 }
 
 .pagination {
@@ -99,6 +110,7 @@ body {
 footer {
     background-color: #f8f8f8;
     border-top: 1px solid #e7e7e7;
+    
 }
 
 footer h3 {

@@ -13,9 +13,11 @@
         <header class="bg-light border-bottom">
             <div class="row py-2">
                 <div class="col-md-12 text-center">
-                    <h1 class="m-0">BOOKSTORE</h1>
+                    <h1 class="m-0 bookstore-title">
+                        <a href="/" style="text-decoration: none; color: inherit;">BOOKSTORE</a>
+                    </h1>
                 </div>
-            </div>
+            </div>          
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,13 +44,13 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">HỖ TRỢ KHÁCH HÀNG</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="#">TÁC PHẨM NỔI BẬT</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">TÁC GIẢ TIÊU BIỂU</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">HỖ TRỢ KHÁCH HÀNG</a>
                             </li>
                         </ul>
                         <div class="d-flex justify-content-center">
@@ -89,6 +91,17 @@
         <main class="py-4 flex-grow-1">
             {% block content %}
             {% endblock %}
+            
+            <!-- Thêm đoạn mã thông báo flash ở đây -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="container mt-3">
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
         </main>
 
         <footer class="bg-light border-top mt-4">
@@ -114,15 +127,7 @@
             </div>
         </footer>
     </div>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-        <div class="container">
-            {% for category, message in messages %}
-                <div class="alert alert-{{ category }}">{{ message }}</div>
-            {% endfor %}
-        </div>
-    {% endif %}
-    {% endwith %}
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
