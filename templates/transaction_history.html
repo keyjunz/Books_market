@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Lịch Sử Giao Dịch{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Lịch Sử Giao Dịch</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Ngày</th>
+                <th>Sản phẩm</th>
+                <th>Số điện thoại</th>
+                <th>Địa chỉ</th>
+                <th>Tổng tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.created_at.strftime('%Y-%m-%d') }}</td>
+                <td>{{ transaction.product_details }}</td>
+                <td>{{ transaction.phone }}</td>
+                <td>{{ transaction.address }}</td>
+                <td>{{ transaction.total_amount }} VND</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

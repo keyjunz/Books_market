@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Cart{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Giỏ hàng</h2>
+
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cart_items %}
+                    <tr>
+                        <td>{{ item.title }}</td>
+                        <td>{{ item.price }} VND</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.total }} VND</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-4">
+            <form method="POST" action="{{ url_for('checkout') }}">
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Số điện thoại</label>
+                    <input type="text" class="form-control" id="phone" name="phone" value="{{ session.get('phone', '') }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Địa chỉ</label>
+                    <input type="text" class="form-control" id="address" name="address" value="{{ session.get('address', '') }}" required>
+                </div>
+
+                <h5>Tổng tiền hàng: {{ cart_total }} VND</h5>
+                <h5>Phí vận chuyển: 30,000 VND</h5>
+                <h4>Tổng thanh toán: {{ cart_total + 30000 }} VND</h4>
+
+                <button type="submit" class="btn btn-success mt-3">Đặt hàng</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
